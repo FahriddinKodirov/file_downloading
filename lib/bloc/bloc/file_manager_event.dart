@@ -8,5 +8,7 @@ class FetchFileManager extends FileManagerEvent {
  FetchFileManager({
             required this.fileName,
             required this.fileUrl,
-            required this.progress});
+            required this.progress
+            });
 }
+

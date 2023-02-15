@@ -1,7 +1,7 @@
-import 'package:file_downloading/bloc/file_manager_bloc.dart';
-import 'package:file_downloading/bloc/file_manager_event.dart';
-import 'package:file_downloading/bloc/file_manager_state.dart';
-import 'package:file_downloading/screen/file_info.dart';
+import 'package:file_downloading/bloc/bloc/file_manager_bloc.dart';
+import 'package:file_downloading/bloc/bloc/file_manager_event.dart';
+import 'package:file_downloading/bloc/bloc/file_manager_state.dart';
+import 'package:file_downloading/screen/ui/file_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_file_safe/open_file_safe.dart';
@@ -9,8 +9,7 @@ import 'package:open_file_safe/open_file_safe.dart';
 class SingleFileDownloading extends StatelessWidget {
   final FileInfo fileInfo;
 
- SingleFileDownloading({super.key, required this.fileInfo});
-
+  const SingleFileDownloading({super.key, required this.fileInfo});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,7 @@ class SingleFileDownloading extends StatelessWidget {
 
           },
           trailing: IconButton(
-            onPressed: () {git commit -m "first commit"
+            onPressed: () {
               if(state.newFileLocation.isNotEmpty){
                 print(state.newFileLocation);
                 OpenFile.open(state.newFileLocation);

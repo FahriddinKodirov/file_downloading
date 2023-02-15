@@ -1,20 +1,22 @@
 import 'package:equatable/equatable.dart';
 
-class FileInfo extends Equatable {
+class IsolateInfo extends Equatable {
   final String fileName;
   final String fileUrl;
   final double progress;
 
-  const FileInfo({required this.fileName,
+  const IsolateInfo({
+            required this.fileName,
             required this.fileUrl,
-            required this.progress});
+            required this.progress
+        });
 
-FileInfo copyWith({
+IsolateInfo copyWith({
   String? fileName,
   String? fileUrl,
   double? progress
 }) => 
-   FileInfo(
+   IsolateInfo(
     fileName: fileName ?? this.fileName, 
     fileUrl: fileUrl ?? this.fileUrl, 
     progress: progress?? this.progress
@@ -28,30 +30,30 @@ FileInfo copyWith({
   ];
 
 }
- List<FileInfo> fileData  = [
-  const FileInfo(
+ List<IsolateInfo> fileData  = [
+  const IsolateInfo(
     fileName: 'Pythonbook',  
     fileUrl: 'http://bilimlar.uz/wp-content/uploads/2021/02/k100001.pdf', 
     progress: 0.0
     ),
-  const FileInfo(
+  const IsolateInfo(
     fileName: 'butterfly',  
     fileUrl: 'http://bilimlar.uz/wp-content/uploads/2021/02/k100001.pdf', 
     progress: 0.0
     ),
-  const FileInfo(
+  const IsolateInfo(
     fileName: 'sabyan va rahmon',  
     fileUrl: 'http://bilimlar.uz/wp-content/uploads/2021/02/k100001.pdf', 
     progress: 0.0
     ),
-  const FileInfo(
+  const IsolateInfo(
     fileName: 'ajoyib rasm',  
     fileUrl: 'http://bilimlar.uz/wp-content/uploads/2021/02/k100001.pdf', 
     progress: 0.0
     ),
-  const FileInfo(
+  const IsolateInfo(
     fileName: 'foydali file',  
-    fileUrl: 'http://foydali-fayllar.uz/wp-content/uploads/2021/04/informatika-text.doc.zip', 
+    fileUrl: 'http://bilimlar.uz/wp-content/uploads/2021/02/k100001.pdf', 
     progress: 0.0
     ),
 

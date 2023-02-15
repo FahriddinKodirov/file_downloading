@@ -1,5 +1,5 @@
-import 'package:file_downloading/screen/file_info.dart';
-import 'package:file_downloading/screen/single_file_downloading.dart';
+import 'package:file_downloading/screen/ui/file_info.dart';
+import 'package:file_downloading/screen/ui/single_file_downloading.dart';
 import 'package:flutter/material.dart';
 
 class FileDownloadExamaple extends StatefulWidget {

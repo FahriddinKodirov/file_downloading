@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:async';
-import 'package:file_downloading/bloc/file_manager_event.dart';
-import 'package:file_downloading/bloc/file_manager_state.dart';
+import 'package:file_downloading/bloc/bloc/file_manager_event.dart';
+import 'package:file_downloading/bloc/bloc/file_manager_state.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/rendering.dart';
@@ -46,38 +46,38 @@ class FileManagerBloc extends Bloc<FileManagerEvent, FileManagerState> {
 
 }
 
- downloadFile({required String fileName,required String url}) async {
-  bool hasPermission = await _requestWritePermission();
-  if (!hasPermission) return;
-  Dio dio = Dio();
+//  downloadFile({required String fileName,required String url}) async {
+//   bool hasPermission = await _requestWritePermission();
+//   if (!hasPermission) return;
+//   Dio dio = Dio();
 
-  var directory = await getDownloadPath();
-  String newFileLocation = 
-      '${directory?.path}/$fileName${url.substring(url.length - 5, url.length)}';
-  var allFiles = directory?.list();
+//   var directory = await getDownloadPath();
+//   String newFileLocation = 
+//       '${directory?.path}/$fileName${url.substring(url.length - 5, url.length)}';
+//   var allFiles = directory?.list();
 
-  List<String> filePaths = [];
-  await allFiles?.forEach((element) {
-    filePaths.add(element.path.toString());
-  });
+//   List<String> filePaths = [];
+//   await allFiles?.forEach((element) {
+//     filePaths.add(element.path.toString());
+//   });
 
-  if(filePaths.contains(newFileLocation)) {
-    OpenFile.open(newFileLocation);
-  } else {
-    try {
-      await dio.download(url, newFileLocation,
-      onReceiveProgress: (count, total) {
-        double pr = count / total;
-        emit(state.copyWith(progress: pr));
-      },);
-      OpenFile.open(newFileLocation);
-    } catch (err) {
-      debugPrint('DOWNLOAD ERROR: $err');
-    }
-  }
+//   if(filePaths.contains(newFileLocation)) {
+//     OpenFile.open(newFileLocation);
+//   } else {
+//     try {
+//       await dio.download(url, newFileLocation,
+//       onReceiveProgress: (count, total) {
+//         double pr = count / total;
+//         emit(state.copyWith(progress: pr));
+//       },);
+//       OpenFile.open(newFileLocation);
+//     } catch (err) {
+//       debugPrint('DOWNLOAD ERROR: $err');
+//     }
+//   }
 
 
-}
+// }
 
 
 Future<bool> _requestWritePermission() async {
